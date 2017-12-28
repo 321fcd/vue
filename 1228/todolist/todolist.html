@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../vue.js"></script>
+    <link rel="stylesheet" href="todolist.css">
+</head>
+<body>
+    <div id="root">
+        <header>
+            <input type="text" v-model="msg" placeholder="请输入事项" @keyup.13="add">
+        </header>
+        <div class="btns">
+            <input type="submit" value="全部" @click="changeStatus('all')" :class="{check:status=='all'}">
+            <input type="submit" value="已完成" @click="changeStatus('1')" :class="{check:status==1}">
+            <input type="submit" value="未完成" @click="changeStatus('0')" :class="{check:status=='0'}">
+        </div>
+        <ul class="list">
+            <li v-for="item in datas">
+                <span class="opt" @click="changeState(item)" :class="{red:item.state==1}"></span>
+                <div class="edit" v-if="item.edit" @dblclick="edit(item)">
+                    <p>{{item.title}}</p>
+                </div>
+                <div class="edit" v-else="item.edit">
+                    <input type="text" v-model="item.title" @blue="edit(item)">
+                </div>
+                <span class="del" @click="del(item.id)">删除</span>
+            </li>
+
+        </ul>
+    </div>
+    <script src="todolist.js"></script>
+</body>
+</html>
