@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="vue.js"></script>
+    <script src="vue-router.js"></script>
+    <link rel="stylesheet" href="./index.css">
+    <link rel="stylesheet" href="./bootstrap.css">
+    <script src="https://cdn.jsdelivr.net/npm/tween.js@16.3.4"></script>
+</head>
+<body>
+<div id="root">
+    <div class="dao">
+        <router-link to="/">文档</router-link>
+        <router-link to="/quick1">快速入门</router-link>
+    </div>
+    <transition name="a" mode="out-in">
+        <router-view>
+        </router-view>
+    </transition>
+</div>
+<script src="./com.js"></script>
+<script src="./router.js"></script>
+<script src="./app.js"></script>
+</body>
+</html>
